@@ -11,11 +11,11 @@ using System.Windows.Forms;
 
 namespace pctesting
 {
-    public partial class Form1 : Form
+    public partial class UserForm : Form
     {
         FileManager fileWatcher = new FileManager();
         TrafficManager trafficWatcher = new TrafficManager();
-        public Form1()
+        public UserForm()
         {
             InitializeComponent();
             fileWatcher.watch();
