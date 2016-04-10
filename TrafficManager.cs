@@ -1,11 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Diagnostics;
 using System.IO;
-using System.Windows.Forms;
+using pctesting.DBService;
 using Fiddler;
 
 namespace pctesting
@@ -13,8 +8,6 @@ namespace pctesting
     class TrafficManager
     {
         private UrlCaptureConfiguration CaptureConfiguration { get; set; }
-
-        bool isFirstSslRequest;
 
         public TrafficManager()
         {
@@ -64,9 +57,11 @@ namespace pctesting
             string headers = sess.oRequest.headers.ToString();
             if (headers.Contains("Referer"))
                 return;
+            DBService.DataServiceClient client = new DataServiceClient();
+            client.saveTrafficDataToDB(sess.fullUrl.ToLower(), (int)DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalSeconds, 1, 1);
         }
 
-        void Start()
+        public void Start()
         {
             CaptureConfiguration.IgnoreResources = true;
 
@@ -74,16 +69,13 @@ namespace pctesting
             FiddlerApplication.Startup(8888, true, true, true);
         }
 
-
-        void Stop()
+        public void Stop()
         {
             FiddlerApplication.AfterSessionComplete -= FiddlerApplication_AfterSessionComplete;
 
             if (FiddlerApplication.IsStarted())
                 FiddlerApplication.Shutdown();
         }
-
-
 
         public static bool InstallCertificate()
         {

@@ -12,11 +12,13 @@ namespace pctesting
 {
     public partial class Form1 : Form
     {
-        FileManager watcher = new FileManager();
+        FileManager fileWatcher = new FileManager();
+        TrafficManager trafficWatcher = new TrafficManager();
         public Form1()
         {
             InitializeComponent();
-            watcher.watch();
+            fileWatcher.watch();
+            trafficWatcher.Start();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -55,6 +57,11 @@ namespace pctesting
         private void timer1_Tick(object sender, EventArgs e)
         {
             process.UpdateProcess();
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            trafficWatcher.Stop();
         }
     }
 }

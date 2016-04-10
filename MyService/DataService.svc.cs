@@ -28,7 +28,7 @@ namespace MyService
             sc = new SQLiteCommand("CREATE TABLE IF NOT EXISTS FILE(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, path TEXT, time INTEGER, type TEXT, computerID INTEGER, userID INTEGER, " + 
                 "CONSTRAINT fk_computer " + 
                 "FOREIGN KEY (computerID) " +
-                "REFERENCES COMPUTER(id))" +
+                "REFERENCES COMPUTER(id), " +
                 "CONSTRAINT fk_user " +
                 "FOREIGN KEY (userID) " +
                 "REFERENCES USER(id))" +
@@ -37,7 +37,7 @@ namespace MyService
             sc = new SQLiteCommand("CREATE TABLE IF NOT EXISTS TRAFFIC(id INTEGER PRIMARY KEY AUTOINCREMENT, URL TEXT, time INTEGER, computerID INTEGER, userID INTEGER, " +
                 "CONSTRAINT fk_computer " +
                 "FOREIGN KEY (computerID) " +
-                "REFERENCES COMPUTER(id))" +
+                "REFERENCES COMPUTER(id), " +
                 "CONSTRAINT fk_user " +
                 "FOREIGN KEY (userID) " +
                 "REFERENCES USER(id))" +
