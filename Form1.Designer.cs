@@ -1,4 +1,4 @@
-﻿namespace pctetsting
+﻿namespace pctesting
 {
     partial class Form1
     {

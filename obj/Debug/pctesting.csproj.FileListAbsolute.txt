@@ -1,0 +1,10 @@
+F:\Vetriti\repository\bin\Debug\pctesting.exe.config
+F:\Vetriti\repository\bin\Debug\pctesting.exe
+F:\Vetriti\repository\bin\Debug\pctesting.pdb
+F:\Vetriti\repository\bin\Debug\FiddlerCore4.dll
+F:\Vetriti\repository\obj\Debug\pctesting.csprojResolveAssemblyReference.cache
+F:\Vetriti\repository\obj\Debug\pctesting.Form1.resources
+F:\Vetriti\repository\obj\Debug\pctesting.Properties.Resources.resources
+F:\Vetriti\repository\obj\Debug\pctesting.csproj.GenerateResource.Cache
+F:\Vetriti\repository\obj\Debug\pctesting.exe
+F:\Vetriti\repository\obj\Debug\pctesting.pdb

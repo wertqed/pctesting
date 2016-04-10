@@ -8,13 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace pctetsting
+namespace pctesting
 {
     public partial class Form1 : Form
     {
+        FileManager watcher = new FileManager();
         public Form1()
         {
             InitializeComponent();
+            watcher.watch();
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)

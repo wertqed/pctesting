@@ -1,12 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Security.Permissions;
+using pctesting.DBService;
 using System.IO;
 
-namespace pctetsting
+namespace pctesting
 {
     class FileManager
     {
@@ -23,13 +19,12 @@ namespace pctetsting
             watcher.EnableRaisingEvents = true;
         }
 
-        public void watch(System.ComponentModel.ISynchronizeInvoke x)
+        public void watch()
         {
             string system = Environment.GetFolderPath(Environment.SpecialFolder.System);
             string[] drives = Directory.GetLogicalDrives();
             string sysRoot = Path.GetPathRoot(system);
             FileSystemWatcher watcher;
-            bool t = false;
             foreach (string driveStr in drives)
             {
                 DriveInfo drive = new DriveInfo(driveStr);
@@ -37,7 +32,6 @@ namespace pctetsting
                 {
                     watcher = new FileSystemWatcher(@drive.Name, "*.*");
                     initWatcher(watcher);
-                    t = true;
                 }
             }
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
@@ -47,24 +41,14 @@ namespace pctetsting
 
         private static void OnChanged(object source, FileSystemEventArgs e)
         {
-            if (!e.Name.Contains("qwerty.txt"))
-                using (System.IO.StreamWriter file =
-                new System.IO.StreamWriter("qwerty.txt"))
-                {
-                    file.WriteLine(e.FullPath);
-                    file.WriteLine(e.Name);
-                    file.WriteLine(e.ChangeType);
-                    file.WriteLine(DateTime.Now.ToString());
-                }
+            DBService.DataServiceClient client = new DataServiceClient();
+            client.saveFileDataToDB(e.Name, e.FullPath, (int)DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalSeconds, e.ChangeType.ToString(), 1, 1);
         }
 
         private static void OnRenamed(object source, RenamedEventArgs e)
         {
-            using (System.IO.StreamWriter file =
-            new System.IO.StreamWriter(@"qwerty.txt"))
-            {
-                file.WriteLine("File: {0} renamed to {1}", e.OldFullPath, e.FullPath);
-            }
+            DBService.DataServiceClient client = new DataServiceClient();
+            client.saveFileDataToDB(e.Name, e.FullPath, (int)DateTime.Now.Subtract(new DateTime(1970, 1, 1)).TotalSeconds, e.ChangeType.ToString(), 1, 1);
         }
     }
 }
