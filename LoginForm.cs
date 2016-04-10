@@ -20,7 +20,9 @@ namespace pctesting
 
         private void LoginButton_Click(object sender, EventArgs e)
         {
-
+            DBService.DataServiceClient client = new DataServiceClient();
+            string IP = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[0].ToString();
+            client.
         }
     }
 }

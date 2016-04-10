@@ -26,6 +26,12 @@ namespace pctesting.DBService {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/saveTrafficDataToDB", ReplyAction="http://tempuri.org/IDataService/saveTrafficDataToDBResponse")]
         System.Threading.Tasks.Task saveTrafficDataToDBAsync(string URL, int time, int compID, int userID);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/login", ReplyAction="http://tempuri.org/IDataService/loginResponse")]
+        string login(string name, string password, string compName);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IDataService/login", ReplyAction="http://tempuri.org/IDataService/loginResponse")]
+        System.Threading.Tasks.Task<string> loginAsync(string name, string password, string compName);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -69,6 +75,14 @@ namespace pctesting.DBService {
         
         public System.Threading.Tasks.Task saveTrafficDataToDBAsync(string URL, int time, int compID, int userID) {
             return base.Channel.saveTrafficDataToDBAsync(URL, time, compID, userID);
+        }
+        
+        public string login(string name, string password, string compName) {
+            return base.Channel.login(name, password, compName);
+        }
+        
+        public System.Threading.Tasks.Task<string> loginAsync(string name, string password, string compName) {
+            return base.Channel.loginAsync(name, password, compName);
         }
     }
 }

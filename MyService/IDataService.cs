@@ -16,5 +16,8 @@ namespace MyService
 
         [OperationContract]
         void saveTrafficDataToDB(string URL, int time, int compID, int userID);
+
+        [OperationContract]
+        string login(string name, string password, string compName);
     }
 }

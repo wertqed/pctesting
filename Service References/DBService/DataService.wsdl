@@ -18,6 +18,12 @@
   <wsdl:message name="IDataService_saveTrafficDataToDB_OutputMessage">
     <wsdl:part name="parameters" element="tns:saveTrafficDataToDBResponse" />
   </wsdl:message>
+  <wsdl:message name="IDataService_login_InputMessage">
+    <wsdl:part name="parameters" element="tns:login" />
+  </wsdl:message>
+  <wsdl:message name="IDataService_login_OutputMessage">
+    <wsdl:part name="parameters" element="tns:loginResponse" />
+  </wsdl:message>
   <wsdl:portType name="IDataService">
     <wsdl:operation name="saveFileDataToDB">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/saveFileDataToDB" message="tns:IDataService_saveFileDataToDB_InputMessage" />
@@ -26,6 +32,10 @@
     <wsdl:operation name="saveTrafficDataToDB">
       <wsdl:input wsaw:Action="http://tempuri.org/IDataService/saveTrafficDataToDB" message="tns:IDataService_saveTrafficDataToDB_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IDataService/saveTrafficDataToDBResponse" message="tns:IDataService_saveTrafficDataToDB_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDataService/login" message="tns:IDataService_login_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDataService/loginResponse" message="tns:IDataService_login_OutputMessage" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IDataService" type="tns:IDataService">
@@ -41,6 +51,15 @@
     </wsdl:operation>
     <wsdl:operation name="saveTrafficDataToDB">
       <soap:operation soapAction="http://tempuri.org/IDataService/saveTrafficDataToDB" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="login">
+      <soap:operation soapAction="http://tempuri.org/IDataService/login" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
