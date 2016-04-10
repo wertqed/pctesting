@@ -28,67 +28,67 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.LoginButton = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.UserNameLabel = new System.Windows.Forms.Label();
-            this.PasswordLabel = new System.Windows.Forms.Label();
+            this.loginButton = new System.Windows.Forms.Button();
+            this.loginTextBox = new System.Windows.Forms.TextBox();
+            this.passwordTextBox = new System.Windows.Forms.TextBox();
+            this.userNameLabel = new System.Windows.Forms.Label();
+            this.passwordLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // LoginButton
+            // loginButton
             // 
-            this.LoginButton.Location = new System.Drawing.Point(100, 150);
-            this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(100, 30);
-            this.LoginButton.TabIndex = 0;
-            this.LoginButton.Text = "Войти";
-            this.LoginButton.UseVisualStyleBackColor = true;
-            this.LoginButton.Click += new System.EventHandler(this.LoginButton_Click);
+            this.loginButton.Location = new System.Drawing.Point(100, 150);
+            this.loginButton.Name = "loginButton";
+            this.loginButton.Size = new System.Drawing.Size(100, 30);
+            this.loginButton.TabIndex = 0;
+            this.loginButton.Text = "Войти";
+            this.loginButton.UseVisualStyleBackColor = true;
+            this.loginButton.Click += new System.EventHandler(this.LoginButton_Click);
             // 
-            // textBox1
+            // loginTextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(100, 30);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 22);
-            this.textBox1.TabIndex = 1;
+            this.loginTextBox.Location = new System.Drawing.Point(100, 30);
+            this.loginTextBox.Name = "loginTextBox";
+            this.loginTextBox.Size = new System.Drawing.Size(150, 22);
+            this.loginTextBox.TabIndex = 1;
             // 
-            // textBox2
+            // passwordTextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(100, 80);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(150, 22);
-            this.textBox2.TabIndex = 2;
+            this.passwordTextBox.Location = new System.Drawing.Point(100, 80);
+            this.passwordTextBox.Name = "passwordTextBox";
+            this.passwordTextBox.Size = new System.Drawing.Size(150, 22);
+            this.passwordTextBox.TabIndex = 2;
             // 
-            // UserNameLabel
+            // userNameLabel
             // 
-            this.UserNameLabel.AutoSize = true;
-            this.UserNameLabel.Location = new System.Drawing.Point(10, 30);
-            this.UserNameLabel.Name = "UserNameLabel";
-            this.UserNameLabel.Size = new System.Drawing.Size(55, 17);
-            this.UserNameLabel.TabIndex = 3;
-            this.UserNameLabel.Text = "Логин: ";
+            this.userNameLabel.AutoSize = true;
+            this.userNameLabel.Location = new System.Drawing.Point(10, 30);
+            this.userNameLabel.Name = "userNameLabel";
+            this.userNameLabel.Size = new System.Drawing.Size(55, 17);
+            this.userNameLabel.TabIndex = 3;
+            this.userNameLabel.Text = "Логин: ";
             // 
-            // PasswordLabel
+            // passwordLabel
             // 
-            this.PasswordLabel.AutoSize = true;
-            this.PasswordLabel.Location = new System.Drawing.Point(10, 80);
-            this.PasswordLabel.Name = "PasswordLabel";
-            this.PasswordLabel.Size = new System.Drawing.Size(65, 17);
-            this.PasswordLabel.TabIndex = 4;
-            this.PasswordLabel.Text = "Пароль: ";
+            this.passwordLabel.AutoSize = true;
+            this.passwordLabel.Location = new System.Drawing.Point(10, 80);
+            this.passwordLabel.Name = "passwordLabel";
+            this.passwordLabel.Size = new System.Drawing.Size(65, 17);
+            this.passwordLabel.TabIndex = 4;
+            this.passwordLabel.Text = "Пароль: ";
             // 
             // LoginForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(282, 203);
-            this.Controls.Add(this.PasswordLabel);
-            this.Controls.Add(this.UserNameLabel);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.LoginButton);
+            this.Controls.Add(this.passwordLabel);
+            this.Controls.Add(this.userNameLabel);
+            this.Controls.Add(this.passwordTextBox);
+            this.Controls.Add(this.loginTextBox);
+            this.Controls.Add(this.loginButton);
             this.Name = "LoginForm";
-            this.Text = "LoginForm";
+            this.Text = "Вход";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,10 +96,10 @@
 
         #endregion
 
-        private System.Windows.Forms.Button LoginButton;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label UserNameLabel;
-        private System.Windows.Forms.Label PasswordLabel;
+        private System.Windows.Forms.Button loginButton;
+        private System.Windows.Forms.TextBox loginTextBox;
+        private System.Windows.Forms.TextBox passwordTextBox;
+        private System.Windows.Forms.Label userNameLabel;
+        private System.Windows.Forms.Label passwordLabel;
     }
 }

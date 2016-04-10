@@ -22,7 +22,23 @@ namespace pctesting
         {
             DBService.DataServiceClient client = new DataServiceClient();
             string IP = System.Net.Dns.GetHostEntry(System.Net.Dns.GetHostName()).AddressList[0].ToString();
-            client.
+            if (loginTextBox.Text.Equals("") | passwordTextBox.Text.Equals(""))
+                MessageBox.Show("Введите корректные данные!");
+            else
+                switch(client.login(loginTextBox.Text, passwordTextBox.Text, IP))
+                {
+                    case "user":
+                        new UserForm();
+                        Close();
+                        break;
+                    case "admin":
+                        //TODO перейти на форму для админа
+                        Close();
+                        break;
+                    default:
+                        MessageBox.Show("Неверный логин или пароль.\nВ доступе отказано!");
+                        break;
+                }
         }
     }
 }
