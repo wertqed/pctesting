@@ -6,7 +6,6 @@ namespace pctesting
 {
     class FileManager
     {
-        //[PermissionSet(SecurityAction.Demand, Name = "FullTrust")]
         private void initWatcher(FileSystemWatcher watcher)
         {
             watcher.NotifyFilter = NotifyFilters.Attributes | NotifyFilters.CreationTime | NotifyFilters.DirectoryName | NotifyFilters.FileName | NotifyFilters.LastAccess | NotifyFilters.LastWrite | NotifyFilters.Security | NotifyFilters.Size;

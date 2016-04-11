@@ -14,7 +14,7 @@ namespace pctesting
             CaptureConfiguration = new UrlCaptureConfiguration();  // this usually comes from configuration settings
         }
 
-        private void FiddlerApplication_AfterSessionComplete(Session sess)
+        private void AfterSession(Session sess)
         {
             // Ignore HTTPS connect requests
             if (sess.RequestMethod == "CONNECT")
@@ -65,40 +65,40 @@ namespace pctesting
         {
             CaptureConfiguration.IgnoreResources = true;
 
-            FiddlerApplication.AfterSessionComplete += FiddlerApplication_AfterSessionComplete;
+            FiddlerApplication.AfterSessionComplete += AfterSession;
             FiddlerApplication.Startup(8888, true, true, true);
         }
 
         public void Stop()
         {
-            FiddlerApplication.AfterSessionComplete -= FiddlerApplication_AfterSessionComplete;
+            FiddlerApplication.AfterSessionComplete -= AfterSession;
 
             if (FiddlerApplication.IsStarted())
                 FiddlerApplication.Shutdown();
         }
 
-        public static bool InstallCertificate()
-        {
-            if (!CertMaker.rootCertExists())
-            {
-                if (!CertMaker.createRootCert())
-                    return false;
+        //public static bool InstallCertificate()
+        //{
+        //    if (!CertMaker.rootCertExists())
+        //    {
+        //        if (!CertMaker.createRootCert())
+        //            return false;
 
-                if (!CertMaker.trustRootCert())
-                    return false;
-            }
+        //        if (!CertMaker.trustRootCert())
+        //            return false;
+        //    }
 
-            return true;
-        }
+        //    return true;
+        //}
 
-        public static bool UninstallCertificate()
-        {
-            if (CertMaker.rootCertExists())
-            {
-                if (!CertMaker.removeFiddlerGeneratedCerts(true))
-                    return false;
-            }
-            return true;
-        }
+        //public static bool UninstallCertificate()
+        //{
+        //    if (CertMaker.rootCertExists())
+        //    {
+        //        if (!CertMaker.removeFiddlerGeneratedCerts(true))
+        //            return false;
+        //    }
+        //    return true;
+        //}
     }
 }
