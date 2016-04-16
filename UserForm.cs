@@ -15,6 +15,8 @@ namespace pctesting
     {
         FileManager fileWatcher = new FileManager();
         TrafficManager trafficWatcher = new TrafficManager();
+        ProcessControl process = new ProcessControl();
+        KeyHook kh = new KeyHook();
         public UserForm()
         {
             InitializeComponent();
@@ -49,7 +51,6 @@ namespace pctesting
         {
 
         }
-        ProcessControl process = new ProcessControl();
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -63,6 +64,22 @@ namespace pctesting
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             trafficWatcher.Stop();
+        }
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            kh.KeyDown += new KeyEventHandler(kh_KeyDown);
+            kh.KeyUp += new KeyEventHandler(kh_KeyUp);
+        }
+
+        void kh_KeyUp(object sender, KeyEventArgs e)
+        {
+
+            e.Handled = true;
+        }
+
+        void kh_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
         }
     }
 }
