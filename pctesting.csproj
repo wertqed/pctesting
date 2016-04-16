@@ -49,6 +49,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivityControl.cs" />
     <Compile Include="AdminForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +57,7 @@
       <DependentUpon>AdminForm.cs</DependentUpon>
     </Compile>
     <Compile Include="FileManager.cs" />
+    <Compile Include="KeyHook.cs" />
     <Compile Include="UserForm.cs">
       <SubType>Form</SubType>
     </Compile>
