@@ -29,6 +29,7 @@ namespace MyService
             sql.Open();
             string ansString = "denied";
             setConnection();
+            
             SQLiteCommand sc = new SQLiteCommand("SELECT COUNT(*) FROM USER WHERE name = '" + name + "' AND password = '" + password + "';", sql);
             if (Convert.ToInt32(sc.ExecuteScalar()) > 0)
             {
@@ -58,6 +59,7 @@ namespace MyService
                 Directory.CreateDirectory(@"C:\pctesting");
             if (!File.Exists(@"C:\pctesting\mydb.sqlite"))
                 SQLiteConnection.CreateFile(@"C:\pctesting\mydb.sqlite");//файл хранится в папке с IIS Express
+            //sql.Open();
             execute("CREATE TABLE IF NOT EXISTS COMPUTER(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT);", sql);
             execute("CREATE TABLE IF NOT EXISTS USER(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, password TEXT, admin INTEGER);", sql);
             execute("INSERT INTO USER VALUES(NULL, '" + adminLogin + "', '" + adminPassword + "', '" + 1 + "');", sql);
