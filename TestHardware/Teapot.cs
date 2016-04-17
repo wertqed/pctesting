@@ -18,6 +18,7 @@ namespace pctesting.TestHardware
         Device device;
         Mesh teapot;
         CheckEnable enable;
+        
         public Teapot(CheckEnable _enable)
         {
             enable = _enable;

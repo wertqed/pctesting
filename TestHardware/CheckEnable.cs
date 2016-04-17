@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace pctesting.TestHardware
 {
-    class CheckEnable
+    public class CheckEnable
     {
         bool active = true;
         public bool Active

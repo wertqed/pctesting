@@ -8,7 +8,7 @@ using System.Windows.Forms;
 
 namespace pctesting.TestHardware
 {
-    class myThread
+    public class myThread
     {
         Thread thread;
         private int x;
